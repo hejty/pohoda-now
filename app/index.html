@@ -13,9 +13,17 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild-->
 
-    <!-- build:js bower_components/webcomponentsjs/webcomponents.min.js -->
-    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
-    <!-- endbuild -->
+    <!-- Conditionally load WC polyfills -->
+    <script>
+        if ('registerElement' in document
+            && 'createShadowRoot' in HTMLElement.prototype
+            && 'import' in document.createElement('link')
+            && 'content' in document.createElement('template')) {
+            // We're using a browser with native WC support!
+        } else {
+            document.write('<script src="bower_components/webcomponentsjs/webcomponents.js"><\/script>');
+        }
+    </script>
 
     <!-- build:vulcanized elements/elements.vulcanized.html -->
     <link rel="import" href="elements/elements.html">
@@ -55,7 +63,7 @@
     </div>
 
     <footer>
-        
+
     </footer>
 
     <!-- build:js scripts/app.js -->
