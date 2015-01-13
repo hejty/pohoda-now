@@ -1,21 +1,21 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<polymer-element name="pohoda-stage" attributes="stage">
+<polymer-element name="pohoda-now" attributes="stage artist country bio start end day">
 
-    <template>
+    <template repeat="{{stage in stages}}">
 
-        <artist-now stage="{{stage}}"></artist-now>
+        <pohoda-stage stage="{{stage}}"></pohoda-stage>
 
     </template>
 
     <script>
-        Polymer('pohoda-stage', {
+        Polymer('pohoda-now', {
 
             default: null,
 
             // Fires when the "<polymer-element>" has been fully prepared
             ready: function() {
-
+                
             },
 
             // Fires when the element was inserted into the document
