@@ -1,4 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
 
 <polymer-element name="artist-now" attributes="stage artist country bio start end day">
 
@@ -28,6 +29,13 @@
 
         </style>
 
+        <core-ajax auto url="../../data/artists.json" handleAs="json" response="{{artists}}" on-core-response="{{handleResponse}}">
+        </core-ajax>
+
+        <template repeat="{{artist in artists}}">
+            <div>{{artist.name}} (<span>{{artist.country}}</span>)</div>
+        </template>
+
     </template>
 
     <script>
@@ -37,7 +45,7 @@
 
             // Fires when the "<polymer-element>" has been fully prepared
             ready: function() {
-
+                console.log('Artist is ready!');
             },
 
             // Fires when the element was inserted into the document
@@ -53,6 +61,10 @@
             // Fires when an attribute was added, removed, or updated
             attributeChanged: function(attr, oldVal, newVal) {
 
+            },
+
+            handleResponse: function(event, response) {
+                console.log(response.response);
             }
         });
     </script>
