@@ -4,7 +4,10 @@
 
     <template>
 
-        <artist-now stage="{{stage}}"></artist-now>
+        <template repeat="{{stage in stage}}">
+            <span>{{stage.name}}</span>
+            <artist-now></artist-now>
+        </template>
 
     </template>
 
@@ -14,9 +17,17 @@
 
             Polymer('pohoda-stage', {
 
+                stages: [],
+
                 // Fires when the "<polymer-element>" has been fully prepared
                 ready: function() {
-                    console.log('Stage is ready!');
+                    this.stage = [
+                        {name: 'Bažant Stage'},
+                        {name: 'Space Aréna'},
+                        {name: 'Orange Stage'},
+                        {name: 'Európa Stage'},
+                        {name: 'Nay Dance House'}
+                    ]
                 },
 
                 // Fires when the element was inserted into the document
