@@ -4,6 +4,23 @@
 
     <template>
 
+        <style shim-shadowdom>
+            :host {
+                height: 100%;
+                display: -webkit-flex;
+                display: flex;
+
+                -webkit-justify-content: space-around;
+                justify-content: space-around;
+
+                -webkit-flex-flow: row no-wrap;
+                flex-flow: row no-wrap;
+
+                -webkit-align-items: stretch;
+                align-items: stretch;
+            }
+        </style>
+
         <pohoda-stage stage="{{stages}}"></pohoda-stage>
 
     </template>

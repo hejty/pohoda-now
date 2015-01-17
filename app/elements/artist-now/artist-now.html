@@ -6,38 +6,20 @@
     <template>
 
         <style shim-shadowdom>
-            /* Selects a shadow host element. May contain additional identifiers in parenthesis */
             :host {
                 display: block;
             }
-
-            /* Selects shadow trees that are one level deep inside of an element */
-            ::shadow {
-
-            }
-
-            /* Selects shadow trees that are N levels deep inside of an element */
-            /deep/ {
-
-            }
-
-            /* Selects distributed nodes inside of an element */
-            ::content {
-
-            }
-
-
         </style>
 
         <core-ajax
-                auto
-                url="../../data/artists.json"
-                handleAs="json"
-                response="{{artists}}"
-                on-core-response="{{handleResponse}}"></core-ajax>
+            auto
+            url="../../data/artists.json"
+            handleAs="json"
+            response="{{artist}}"
+            on-core-response="{{handleResponse}}"></core-ajax>
 
-        <template repeat="{{artist in artists}}">
-            <div>{{artist.artist}} (<span>{{artist.country}}</span>)</div>
+        <template repeat="{{art in artist}}">
+                <h2>{{art.artist}}</h2>
         </template>
 
     </template>

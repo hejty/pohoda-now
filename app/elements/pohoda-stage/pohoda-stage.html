@@ -4,9 +4,18 @@
 
     <template>
 
-        <template repeat="{{stage in stage}}">
-            <span>{{stage.name}}</span>
-            <artist-now></artist-now>
+        <style shim-shadowdom>
+            :host {
+                flex: 1 100%;
+                overflow: hidden;
+            }
+        </style>
+
+        <template repeat="{{stg in stage}}">
+            <div class="stage" style="height: {{100/allstages}}vh" layout horizontal center around-justified>
+                <h3>{{stg.name}}</h3>
+                <artist-now></artist-now>
+            </div>
         </template>
 
     </template>
@@ -27,7 +36,9 @@
                         {name: 'Orange Stage'},
                         {name: 'Európa Stage'},
                         {name: 'Nay Dance House'}
-                    ]
+                    ];
+
+                    this.allstages = this.stage.length;
                 },
 
                 // Fires when the element was inserted into the document
