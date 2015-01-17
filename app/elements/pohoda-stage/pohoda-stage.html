@@ -1,6 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<polymer-element name="pohoda-stage" attributes="stage">
+<polymer-element name="pohoda-stage" attributes="stage artist">
 
     <template>
 
@@ -9,30 +9,33 @@
     </template>
 
     <script>
-        Polymer('pohoda-stage', {
+        (function() {
+            'use strict';
 
-            default: null,
+            Polymer('pohoda-stage', {
 
-            // Fires when the "<polymer-element>" has been fully prepared
-            ready: function() {
-                console.log('Stage is ready!');
-            },
+                // Fires when the "<polymer-element>" has been fully prepared
+                ready: function() {
+                    console.log('Stage is ready!');
+                },
 
-            // Fires when the element was inserted into the document
-            attached: function() {
+                // Fires when the element was inserted into the document
+                attached: function() {
 
-            },
+                },
 
-            // Fires when the element was removed from the document
-            detached: function() {
+                // Fires when the element was removed from the document
+                detached: function() {
 
-            },
+                },
 
-            // Fires when an attribute was added, removed, or updated
-            attributeChanged: function(attr, oldVal, newVal) {
+                // Fires when an attribute was added, removed, or updated
+                attributeChanged: function(attr, oldVal, newVal) {
 
-            }
-        });
+                }
+
+            });
+        })();
     </script>
 
 </polymer-element>
