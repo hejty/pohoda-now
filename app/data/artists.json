@@ -1,86 +1,38 @@
 [
     {
+        "id":1,
         "artist":"Les Ambassadeurs",
+        "stage":"Bažant Stage",
         "country":"ML",
         "bio":"",
-        "start":"",
-        "end":""
+        "time":"60",
+        "pause":"0"
     },
     {
+        "id":2,
         "artist":"Too Many Zooz",
+        "stage":"Bažant Stage",
         "country":"US",
         "bio":"",
-        "start":"",
-        "end":""
+        "time":"60",
+        "pause":"60"
     },
     {
+        "id":1,
         "artist":"Erotic Market",
+        "stage":"Space Aréna",
         "country":"FR",
         "bio":"",
-        "start":"",
-        "end":""
+        "time":"60",
+        "pause":"0"
     },
     {
+        "id":2,
         "artist":"OFF!",
+        "stage":"Space Aréna",
         "country":"US",
         "bio":"",
-        "start":"",
-        "end":""
-    },
-    {
-        "artist":"Bo Ningen",
-        "country":"JP",
-        "bio":"",
-        "start":"",
-        "end":""
-    },
-    {
-        "artist":"Roni Size Reprazent",
-        "country":"GB",
-        "bio":"",
-        "start":"",
-        "end":""
-    },
-    {
-        "artist":"Eagles of Death Metal",
-        "country":"US",
-        "bio":"",
-        "start":"",
-        "end":""
-    },
-    {
-        "artist":"Young Fathers",
-        "country":"GB",
-        "bio":"",
-        "start":"",
-        "end":""
-    },
-    {
-        "artist":"Kuenta i Tambu",
-        "country":"NL",
-        "bio":"",
-        "start":"",
-        "end":""
-    },
-    {
-        "artist":"Dÿse",
-        "country":"DE",
-        "bio":"",
-        "start":"",
-        "end":""
-    },
-    {
-        "artist":"Monikino Kino",
-        "country":"CZ/SK",
-        "bio":"",
-        "start":"",
-        "end":""
-    },
-    {
-        "artist":"Vlasta Popić",
-        "country":"HR",
-        "bio":"",
-        "start":"",
-        "end":""
+        "time":"90",
+        "pause":"30"
     }
 ]
