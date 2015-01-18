@@ -34,5 +34,59 @@
         "bio":"",
         "time":"90",
         "pause":"30"
+    },
+    {
+        "id":1,
+        "artist":"Bo Ningen",
+        "stage":"Orange Stage",
+        "country":"JP",
+        "bio":"",
+        "time":"60",
+        "pause":"30"
+    },
+    {
+        "id":2,
+        "artist":"Eagles of Death Metal",
+        "stage":"Orange Stage",
+        "country":"US",
+        "bio":"",
+        "time":"90",
+        "pause":"60"
+    },
+    {
+        "id":1,
+        "artist":"Young Fathers",
+        "stage":"Európa Stage",
+        "country":"GB",
+        "bio":"",
+        "time":"60",
+        "pause":"60"
+    },
+    {
+        "id":2,
+        "artist":"Monikino Kino",
+        "stage":"Európa Stage",
+        "country":"CZ",
+        "bio":"",
+        "time":"60",
+        "pause":"60"
+    },
+    {
+        "id":1,
+        "artist":"Dyse",
+        "stage":"Nay Dance House",
+        "country":"DE",
+        "bio":"",
+        "time":"90",
+        "pause":"90"
+    },
+    {
+        "id":2,
+        "artist":"Repetitor",
+        "stage":"Nay Dance House",
+        "country":"RS",
+        "bio":"",
+        "time":"90",
+        "pause":"0"
     }
 ]
