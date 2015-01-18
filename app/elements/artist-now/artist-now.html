@@ -18,8 +18,10 @@
             response="{{artist}}"
             on-core-response="{{handleResponse}}"></core-ajax>
 
-        <template repeat="{{art in artist}}">
+        <template repeat="{{art, i in artist}}">
+            <template if="{{stage == stage && art.stage == stage && art.id == 1}}">
                 <h2>{{art.artist}}</h2>
+            </template>
         </template>
 
     </template>

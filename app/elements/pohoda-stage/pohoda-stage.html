@@ -1,4 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../artist-now/artist-now.html">
 
 <polymer-element name="pohoda-stage" attributes="stage artist">
 
@@ -34,7 +35,7 @@
         <template repeat="{{stg in stage}}">
             <div class="stage" style="height: {{100/allstages}}vh" layout horizontal center around-justified>
                 <h3>{{stg.name}}</h3>
-                <artist-now></artist-now>
+                <artist-now stage="{{stg.name}}"></artist-now>
             </div>
         </template>
 
