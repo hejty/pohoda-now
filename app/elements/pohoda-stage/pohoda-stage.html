@@ -33,6 +33,7 @@
         </style>
 
         <template repeat="{{stg in stage}}">
+            <progress min="0" max="{{time}}" value="{{count}}"></progress>
             <div class="stage" style="height: {{100/allstages}}vh" layout horizontal center around-justified>
                 <h3>{{stg.name}}</h3>
                 <artist-now stage="{{stg.name}}"></artist-now>
