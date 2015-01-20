@@ -49,6 +49,8 @@
             Polymer('pohoda-stage', {
 
                 stages: [],
+                time: null,
+                count: 0,
 
                 // Fires when the "<polymer-element>" has been fully prepared
                 ready: function() {
@@ -61,21 +63,27 @@
                     ];
 
                     this.allstages = this.stage.length;
+                    this.time = 60; // Hardcoded value
+                    this.count = this.time;
+                    this.start();
                 },
 
-                // Fires when the element was inserted into the document
-                attached: function() {
+                start: function() {
+                    var self = this;
 
-                },
+                    function countdown() {
+                        self.count -= 1;
+                        self.fire('stage-countdown-count', self.count);
+                        if (self.count > 0) {
+                            setTimeout(function() {
+                                requestAnimationFrame(countdown);
+                            }, 1000);
+                        } else {
+                            self.fire('stage-countdown-ended');
+                        }
+                    }
 
-                // Fires when the element was removed from the document
-                detached: function() {
-
-                },
-
-                // Fires when an attribute was added, removed, or updated
-                attributeChanged: function(attr, oldVal, newVal) {
-
+                    countdown();
                 }
 
             });
