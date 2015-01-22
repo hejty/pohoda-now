@@ -9,32 +9,90 @@
             :host {
                 flex: 1 100%;
                 overflow: hidden;
+                position: relative;
             }
 
-            .stage:nth-of-type(1) {
+            .stage {
+                z-index: 1;
+            }
+
+            progress {
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                background-size: auto;
+                border: none;
+                left: 0;
+                position: absolute;
+                top: 0;
+                width: 100%;
+                z-index: -1;
+            }
+
+            progress:nth-of-type(1) {
                 background: #D8DDEF;
             }
 
-            .stage:nth-of-type(2) {
+            progress:nth-of-type(1)::-moz-progress-bar {
+                background: #D8DDEF;
+            }
+
+            progress:nth-of-type(1)::-webkit-progress-value {
+                background: #D8DDEF;
+            }
+
+            progress:nth-of-type(2) {
                 background: #A0A4B8;
             }
 
-            .stage:nth-of-type(3) {
+            progress:nth-of-type(2)::-moz-progress-bar {
+                background: #A0A4B8;
+            }
+
+            progress:nth-of-type(2)::-webkit-progress-value {
+                background: #A0A4B8;
+            }
+
+            progress:nth-of-type(3) {
                 background: #7293A0;
             }
 
-            .stage:nth-of-type(4) {
+            progress:nth-of-type(3)::-moz-progress-bar {
+                background: #7293A0;
+            }
+
+            progress:nth-of-type(3)::-webkit-progress-value {
+                background: #7293A0;
+            }
+
+            progress:nth-of-type(4) {
                 background: #45B69C;
             }
 
-            .stage:nth-of-type(5) {
+            progress:nth-of-type(4)::-moz-progress-bar {
+                background: #45B69C;
+            }
+
+            progress:nth-of-type(4)::-webkit-progress-value {
+                background: #45B69C;
+            }
+
+            progress:nth-of-type(5) {
+                background: #21D19F;
+            }
+
+            progress:nth-of-type(5)::-moz-progress-bar {
+                background: #21D19F;
+            }
+
+            progress:nth-of-type(5)::-webkit-progress-value {
                 background: #21D19F;
             }
         </style>
 
-        <template repeat="{{stg in stage}}">
+        <template repeat="{{stg, i in stage}}">
             <progress min="0" max="{{time}}" value="{{count}}" style="top: {{i * 100/allstages}}vh; height: {{100/allstages}}vh;"></progress>
-            <div class="stage" style="height: {{100/allstages}}vh" layout horizontal center around-justified>
+            <div class="stage" style="height: {{100/allstages}}vh;" layout horizontal center around-justified>
                 <h3>{{stg.name}}</h3>
                 <artist-now stage="{{stg.name}}"></artist-now>
             </div>
