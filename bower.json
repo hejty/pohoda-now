@@ -1,11 +1,10 @@
 {
   "name": "pohoda-now",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "dependencies": {
     "polymer": "Polymer/polymer#^0.5.1",
-    "core-ajax": "Polymer/core-ajax#~0.5.2",
-    "firebase-element": "Polymer/firebase-element#~0.5.2",
-    "font-roboto": "Polymer/font-roboto#~0.5.2"
+    "font-roboto": "Polymer/font-roboto#~0.5.2",
+    "firebase-list": "divshot/firebase-list#~0.1.1"
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^2.0.0"
