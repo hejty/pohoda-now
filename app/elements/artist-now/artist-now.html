@@ -1,7 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
 
-<polymer-element name="artist-now" attributes="stage artist">
+<polymer-element name="artist-now" attributes="artist country time">
 
     <template>
 
@@ -9,20 +8,24 @@
             :host {
                 display: block;
             }
+
+            h2 {
+                display: inline-block;
+            }
+
+            span {
+                background-color: #fafafa;
+                border-radius: 50%;
+                display: inline-block;
+                height: 2em;
+                line-height: 2em;
+                margin: 1em;
+                text-align: center;
+                width: 2em;
+            }
         </style>
 
-        <core-ajax
-            auto
-            url="../../data/artists.json"
-            handleAs="json"
-            response="{{artist}}"
-            on-core-response="{{handleResponse}}"></core-ajax>
-
-        <template repeat="{{art, i in artist}}">
-            <template if="{{stage == stage && art.stage == stage && art.id == 1}}">
-                <h2>{{art.artist}}</h2>
-            </template>
-        </template>
+        <h2>{{artist}}</h2><span>{{country}}</span>
 
     </template>
 
@@ -54,7 +57,9 @@
 
                 // Handling an AJAX response
                 handleResponse: function(event, response) {
-                    console.log(response.response);
+                    for (var i=1; i<response.response.length; i++) {
+                        this.time = response.response[i].time;
+                    }
                 }
 
             });

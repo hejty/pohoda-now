@@ -1,4 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/firebase-list/firebase-list.html">
 <link rel="import" href="../pohoda-stage/pohoda-stage.html">
 
 <polymer-element name="pohoda-now" attributes="stages stage">
@@ -8,6 +9,7 @@
         <style shim-shadowdom>
             :host {
                 height: 100%;
+                width: 100%;
                 display: -webkit-flex;
                 display: flex;
 
@@ -20,9 +22,73 @@
                 -webkit-align-items: stretch;
                 align-items: stretch;
             }
+
+            pohoda-stage:nth-of-type(1)::shadow progress {
+                background: #D8DDEF;
+            }
+
+            pohoda-stage:nth-of-type(1)::shadow progress::-moz-progress-bar {
+                background: #D8DDEF;
+            }
+
+            pohoda-stage:nth-of-type(1)::shadow progress::-webkit-progress-value {
+                background: #D8DDEF;
+            }
+
+            pohoda-stage:nth-of-type(2)::shadow progress {
+                background: #A0A4B8;
+            }
+
+            pohoda-stage:nth-of-type(2)::shadow progress::-moz-progress-bar {
+                background: #A0A4B8;
+            }
+
+            pohoda-stage:nth-of-type(2)::shadow progress::-webkit-progress-value {
+                background: #A0A4B8;
+            }
+
+            pohoda-stage:nth-of-type(3)::shadow progress {
+                background: #7293A0;
+            }
+
+            pohoda-stage:nth-of-type(3)::shadow progress::-moz-progress-bar {
+                background: #7293A0;
+            }
+
+            pohoda-stage:nth-of-type(3)::shadow progress::-webkit-progress-value {
+                background: #7293A0;
+            }
+
+            pohoda-stage:nth-of-type(4)::shadow progress {
+                background: #45B69C;
+            }
+
+            pohoda-stage:nth-of-type(4)::shadow progress::-moz-progress-bar {
+                background: #45B69C;
+            }
+
+            pohoda-stage:nth-of-type(4)::shadow progress::-webkit-progress-value {
+                background: #45B69C;
+            }
+
+            pohoda-stage:nth-of-type(5)::shadow progress {
+                background: #21D19F;
+            }
+
+            pohoda-stage:nth-of-type(5)::shadow progress::-moz-progress-bar {
+                background: #21D19F;
+            }
+
+            pohoda-stage:nth-of-type(5)::shadow progress::-webkit-progress-value {
+                background: #21D19F;
+            }
         </style>
 
-        <pohoda-stage stage="{{stages}}"></pohoda-stage>
+        <firebase-list id="base" location="https://pohoda.firebaseio.com/stages" data="{{stages}}" keys="{{keys}}" log readonly></firebase-list>
+
+        <template repeat="{{key in keys}}">
+            <pohoda-stage stage="{{stages[key].name}}" artist="{{stages[key].artists[id].artist}}" country="{{stages[key].artists[id].country}}" time="{{stages[key].artists[id].time}}" on-stage-countdown-ended="{{nextArtist}}" style="top: {{key * 100/5}}vh; height: {{100/5}}vh;" fit></pohoda-stage>
+        </template>
 
     </template>
 
@@ -35,6 +101,7 @@
                 // Fires when the "<polymer-element>" has been fully prepared
                 ready: function() {
                     console.log('Pohoda is ready!');
+                    this.id = 0;
                 },
 
                 // Fires when the element was inserted into the document
@@ -50,6 +117,11 @@
                 // Fires when an attribute was added, removed, or updated
                 attributeChanged: function(attr, oldVal, newVal) {
 
+                },
+
+                nextArtist: function() {
+                    this.id = 1;
+                    console.log("Next one!");
                 }
 
             });

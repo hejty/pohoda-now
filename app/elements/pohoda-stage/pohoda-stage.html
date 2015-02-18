@@ -1,7 +1,7 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../artist-now/artist-now.html">
 
-<polymer-element name="pohoda-stage" attributes="stage artist">
+<polymer-element name="pohoda-stage" attributes="stage artist country time">
 
     <template>
 
@@ -13,6 +13,7 @@
             }
 
             .stage {
+                height: 100%;
                 z-index: 1;
             }
 
@@ -22,81 +23,20 @@
                 -webkit-appearance: none;
                 background-size: auto;
                 border: none;
+                height: 100%;
                 left: 0;
                 position: absolute;
                 top: 0;
                 width: 100%;
                 z-index: -1;
             }
-
-            progress:nth-of-type(1) {
-                background: #D8DDEF;
-            }
-
-            progress:nth-of-type(1)::-moz-progress-bar {
-                background: #D8DDEF;
-            }
-
-            progress:nth-of-type(1)::-webkit-progress-value {
-                background: #D8DDEF;
-            }
-
-            progress:nth-of-type(2) {
-                background: #A0A4B8;
-            }
-
-            progress:nth-of-type(2)::-moz-progress-bar {
-                background: #A0A4B8;
-            }
-
-            progress:nth-of-type(2)::-webkit-progress-value {
-                background: #A0A4B8;
-            }
-
-            progress:nth-of-type(3) {
-                background: #7293A0;
-            }
-
-            progress:nth-of-type(3)::-moz-progress-bar {
-                background: #7293A0;
-            }
-
-            progress:nth-of-type(3)::-webkit-progress-value {
-                background: #7293A0;
-            }
-
-            progress:nth-of-type(4) {
-                background: #45B69C;
-            }
-
-            progress:nth-of-type(4)::-moz-progress-bar {
-                background: #45B69C;
-            }
-
-            progress:nth-of-type(4)::-webkit-progress-value {
-                background: #45B69C;
-            }
-
-            progress:nth-of-type(5) {
-                background: #21D19F;
-            }
-
-            progress:nth-of-type(5)::-moz-progress-bar {
-                background: #21D19F;
-            }
-
-            progress:nth-of-type(5)::-webkit-progress-value {
-                background: #21D19F;
-            }
         </style>
 
-        <template repeat="{{stg, i in stage}}">
-            <progress min="0" max="{{time}}" value="{{count}}" style="top: {{i * 100/allstages}}vh; height: {{100/allstages}}vh;"></progress>
-            <div class="stage" style="height: {{100/allstages}}vh;" layout horizontal center around-justified>
-                <h3>{{stg.name}}</h3>
-                <artist-now stage="{{stg.name}}"></artist-now>
-            </div>
-        </template>
+        <progress min="0" max="{{time}}" value="{{count}}"></progress>
+        <div class="stage" layout horizontal center around-justified>
+            <h2>{{stage}}</h2>
+            <artist-now id="now" artist="{{artist}}" country="{{country}}" time="{{time}}"></artist-now>
+        </div>
 
     </template>
 
@@ -104,24 +44,13 @@
         (function() {
             'use strict';
 
+
             Polymer('pohoda-stage', {
 
                 stages: [],
-                time: null,
                 count: 0,
 
-                // Fires when the "<polymer-element>" has been fully prepared
                 ready: function() {
-                    this.stage = [
-                        {name: 'Bažant Stage'},
-                        {name: 'Space Aréna'},
-                        {name: 'Orange Stage'},
-                        {name: 'Európa Stage'},
-                        {name: 'Nay Dance House'}
-                    ];
-
-                    this.allstages = this.stage.length;
-                    this.time = 60; // Hardcoded value
                     this.count = this.time;
                     this.start();
                 },
