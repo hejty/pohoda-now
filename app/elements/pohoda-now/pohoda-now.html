@@ -1,5 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/firebase-list/firebase-list.html">
+<link rel="import" href="../../bower_components/firebase-element/firebase-element.html">
 <link rel="import" href="../pohoda-stage/pohoda-stage.html">
 
 <polymer-element name="pohoda-now" attributes="stages stage">
@@ -84,10 +84,10 @@
             }
         </style>
 
-        <firebase-list id="base" location="https://pohoda.firebaseio.com/stages" data="{{stages}}" keys="{{keys}}" log readonly></firebase-list>
+        <firebase-element id="base" location="https://pohoda.firebaseio.com/stages" data="{{stages}}" keys="{{keys}}"></firebase-element>
 
         <template repeat="{{key in keys}}">
-            <pohoda-stage stage="{{stages[key].name}}" artist="{{stages[key].artists[id].artist}}" country="{{stages[key].artists[id].country}}" time="{{stages[key].artists[id].time}}" on-stage-countdown-ended="{{nextArtist}}" style="top: {{key * 100/5}}vh; height: {{100/5}}vh;" fit></pohoda-stage>
+            <pohoda-stage stage="{{stages[key].name}}" artist="{{stages[key].artists[order].artist}}" country="{{stages[key].artists[order].country}}" time="{{stages[key].artists[order].time}}" on-stage-countdown-ended="{{nextArtist}}" style="top: {{key * 100/5}}vh; height: {{100/5}}vh;" fit></pohoda-stage>
         </template>
 
     </template>
@@ -101,7 +101,7 @@
                 // Fires when the "<polymer-element>" has been fully prepared
                 ready: function() {
                     console.log('Pohoda is ready!');
-                    this.id = 0;
+                    this.order =  0;
                 },
 
                 // Fires when the element was inserted into the document
@@ -119,9 +119,9 @@
 
                 },
 
-                nextArtist: function() {
-                    this.id = 1;
-                    console.log("Next one!");
+                nextArtist: function(event, detail, sender) {
+                    console.log(sender);
+                    this.order = 1;
                 }
 
             });
