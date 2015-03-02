@@ -66,11 +66,17 @@
                                 requestAnimationFrame(countdown);
                             }, 1000);
                         } else {
-                            self.fire('stage-countdown-ended');
+                            var stage = self.stage;
+                            var prefix = stage.replace(/\s+/g, '-').toLowerCase();
+                            self.fire(prefix + '-countdown-ended');
                         }
                     }
 
                     countdown();
+                },
+
+                artistChanged: function(attr, oldVal, newVal) {
+
                 }
 
             });
