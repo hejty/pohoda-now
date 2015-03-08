@@ -87,7 +87,7 @@
         <firebase-element id="base" location="https://pohoda.firebaseio.com/stages" data="{{stages}}" keys="{{keys}}"></firebase-element>
 
         <template repeat="{{key in keys}}">
-            <pohoda-stage stage="{{stages[key].name}}" artist="{{stages[key].artists[order].artist}}" country="{{stages[key].artists[order].country}}" time="{{stages[key].artists[order].time}}" on-stage-countdown-ended="{{nextArtist}}" style="top: {{key * 100/5}}vh; height: {{100/5}}vh;" fit></pohoda-stage>
+            <pohoda-stage stage="{{stages[key].name}}" artist="{{stages[key].artists[order].artist}}" country="{{stages[key].artists[order].country}}" time="{{stages[key].artists[order].time}}" on-next-please="{{nextArtist}}" style="top: {{key * 100/5}}vh; height: {{100/5}}vh;" fit></pohoda-stage>
         </template>
 
     </template>
@@ -120,8 +120,7 @@
                 },
 
                 nextArtist: function(event, detail, sender) {
-                    console.log(sender);
-                    this.order = 1;
+                    this.order++;
                 }
 
             });
