@@ -44,7 +44,6 @@
         (function() {
             'use strict';
 
-
             Polymer('pohoda-stage', {
 
                 stages: [],
@@ -56,23 +55,15 @@
                 },
 
                 start: function() {
-                    var self = this;
+                    this.count--;
 
-                    function countdown() {
-                        self.count -= 1;
-                        self.fire('stage-countdown-count', self.count);
-                        if (self.count > 0) {
-                            setTimeout(function() {
-                                requestAnimationFrame(countdown);
-                            }, 1000);
-                        } else {
-                            var stage = self.stage;
-                            var prefix = stage.replace(/\s+/g, '-').toLowerCase();
-                            self.fire(prefix + '-countdown-ended');
-                        }
+                    if (this.count > 0) {
+                        this.async(this.start, null, 1000);
+                    } else {
+                        this.fire('next-please');
+                        this.count = this.time;
+                        this.start();
                     }
-
-                    countdown();
                 },
 
                 artistChanged: function(attr, oldVal, newVal) {
