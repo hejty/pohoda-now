@@ -53,13 +53,6 @@
                 // Fires when an attribute was added, removed, or updated
                 attributeChanged: function(attr, oldVal, newVal) {
 
-                },
-
-                // Handling an AJAX response
-                handleResponse: function(event, response) {
-                    for (var i=1; i<response.response.length; i++) {
-                        this.time = response.response[i].time;
-                    }
                 }
 
             });
